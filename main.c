@@ -7,7 +7,7 @@ int main()
 {
     char** head = NULL;
 
-    StringListAdd(&head, "111");
+    StringListAdd(&head, NULL);
     StringListAdd(&head, "555");
     StringListAdd(&head, "333");
     StringListAdd(&head, "222");
@@ -39,7 +39,6 @@ int main()
     printf("Destroy list \n");
     StringListDestroy(&head);
     StringListPrint(head);
-
 
     return 0;
 }

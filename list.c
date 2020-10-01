@@ -6,11 +6,12 @@
 /*Prints list*/
 void StringListPrint(char** list) {
 
-    char** temp = list;
     if (list == NULL) {
         printf("List is empty!");
         return;
     }
+
+    char** temp = list;
     printf("List members:\n");
     while (temp != NULL) {
         printf("%s\n", (temp[data]));
@@ -40,7 +41,9 @@ void StringListDestroy(char*** list) {
     *list = NULL;
 }
 /* Inserts value at the end of the list. */
-void StringListAdd(char*** list, char* str) {
+void StringListAdd(char*** list, const char* str) {
+
+    if (str == NULL) return;
 
     const size_t size = strlen(str) + 1;
 
@@ -65,7 +68,9 @@ void StringListAdd(char*** list, char* str) {
     }
 }
 /* Removes all occurrences of str in the list. */
-void StringListRemove(char*** list, char* str) {
+void StringListRemove(char*** list, const char* str) {
+
+    if (str == NULL) return;
 
     char** curr = *list;
     char** temp = NULL;
@@ -102,7 +107,9 @@ int StringListSize(char** list) {
     return size;
 }
 /* Returns the index position of the first occurrence of str in the list. */
-int StringListIndexOf(char*** list, char* str) {
+int StringListIndexOf(char*** list, const char* str) {
+
+    if (str == NULL) return -1;
 
     char** curr = *list;
     int possition = 0;
@@ -146,8 +153,9 @@ void StringListRemoveDuplicates(char*** list) {
 
 }
 /* Replaces every occurrence of the before, in each of the string lists's strings, with after. */
-void StringListReplaceInStrings(char*** list, char* before, char* after) {
+void StringListReplaceInStrings(char*** list, const char* before, const char* after) {
 
+    if (before == NULL || after == NULL) return;
     char** curr = *list;
 
     while (curr != NULL) {
